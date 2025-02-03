@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiMenú</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="volverARestaurantes()">
+            <img src="logo.png" alt="MiMenú Logo">
+        </div>
+        <div class="flecha-atras" onclick="volverAAnterior()">← Volver</div>
+    </header>
+
+    <main>
+        <!-- Carrusel de restaurantes -->
+        <section class="carrusel-restaurantes">
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <!-- Restaurante 1 -->
+                        <li class="glide__slide">
+                            <div class="restaurante" onclick="verPlatos('Restaurante 1')">
+                                <img src="img/restaurante1.jpg" alt="Restaurante 1" class="restaurante-img">
+                                <h3>L'AngeVi</h3>
+                                <p>Abierto</p>
+                            </div>
+                        </li>
+
+                        <!-- Restaurante 2 -->
+                        <li class="glide__slide">
+                            <div class="restaurante" onclick="verPlatos('Restaurante 2')">
+                                <img src="img/restaurante2.jpg" alt="Restaurante 2" class="restaurante-img">
+                                <h3>ROQUESA</h3>
+                                <p>Cerrado</p>
+                            </div>
+                        </li>
+
+                        <!-- Restaurante 3 -->
+                        <li class="glide__slide">
+                            <div class="restaurante" onclick="verPlatos('Restaurante 3')">
+                                <img src="img/restaurante3.jpg" alt="Restaurante 3" class="restaurante-img">
+                                <h3>Rogo</h3>
+                                <p>Abierto</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Controles del carrusel -->
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">←</button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">→</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de platos -->
+        <section class="platos" id="platos" style="display:none;">
+            <h2>Platos</h2>
+            <div class="plato" onclick="verDetalle('Hamburguesa Sencilla', 10.00, 15)">
+                <img src="img/hamburguesa-sencilla.jpg" alt="Hamburguesa Sencilla" class="plato-img">
+                <h3>Hamburguesa Sencilla</h3>
+                <p>$10.00</p>
+                <p>Tiempo promedio: 15 min</p>
+            </div>
+            <div class="plato" onclick="verDetalle('Pizza Margarita', 15.00, 20)">
+                <img src="img/pizza-margarita.jpg" alt="Pizza Margarita" class="plato-img">
+                <h3>Pizza Margarita</h3>
+                <p>$15.00</p>
+                <p>Tiempo promedio: 20 min</p>
+            </div>
+            <button onclick="volverARestaurantes()">Volver</button>
+            <button onclick="verCarrito()">Ver Carrito</button>
+        </section>
+
+        <!-- Sección de detalle del plato -->
+        <section class="detalle-plato" id="detalle-plato" style="display:none;">
+            <h2 id="nombre-plato"></h2>
+            <img id="imagen-plato" src="" alt="Imagen del plato" class="plato-img">
+            <p id="descripcion-plato"></p>
+            <p id="precio-plato"></p>
+            <p id="tiempo-promedio-plato"></p>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" min="1" value="1">
+            <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+            <button onclick="volverAPlatos()">Volver</button>
+        </section>
+
+        <!-- Sección del carrito -->
+        <section class="carrito" id="carrito" style="display:none;">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito"></ul>
+            <p id="tiempo-promedio-total"></p>
+            <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <label for="mesa">Mesa:</label>
+            <input type="number" id="mesa" min="1" value="1">
+            <button onclick="hacerOrden()">Confirmar Orden</button>
+            <button onclick="volverAPlatos()">Volver</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 MiMenú. Todos los derechos reservados.</p>
+            <p>Contacto: info@mimenu.com</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Inicializar el carrusel
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 3,
+            focusAt: 'center',
+            breakpoints: {
+                800: {
+                    perView: 2
+                },
+                500: {
+                    perView: 1
+                }
+            }
+        }).mount();
+    </script>
+</body>
+</html>

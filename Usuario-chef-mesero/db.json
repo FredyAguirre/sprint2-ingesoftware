@@ -1,0 +1,120 @@
+{
+  "ordenes": [
+    {
+      "id": "cfc8",
+      "mesa": 1,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 1,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 1"
+        },
+        {
+          "plato": "Pizza Margarita",
+          "cantidad": 2,
+          "precio": 15,
+          "tiempoPromedio": 20,
+          "restaurante": "Restaurante 1"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 26,
+      "tiempoRestante": 26,
+      "timestamp": "2025-02-02T02:11:21.379Z"
+    },
+    {
+      "id": "1430",
+      "mesa": 2,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 1,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 1"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 20,
+      "tiempoRestante": 20,
+      "timestamp": "2025-02-02T02:24:03.004Z"
+    },
+    {
+      "id": "c1d0",
+      "mesa": 2,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 1,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 1"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 20,
+      "tiempoRestante": 21,
+      "timestamp": "2025-02-03T03:04:13.048Z"
+    },
+    {
+      "id": "6dab",
+      "mesa": 5,
+      "items": [
+        {
+          "plato": "Pizza Margarita",
+          "cantidad": 2,
+          "precio": 15,
+          "tiempoPromedio": 20,
+          "restaurante": "Restaurante 3"
+        },
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 1,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 3"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 26,
+      "tiempoRestante": 30,
+      "timestamp": "2025-02-03T03:12:47.232Z"
+    },
+    {
+      "id": "1b12",
+      "mesa": 3,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 2,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 3"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 20,
+      "tiempoRestante": 35,
+      "timestamp": "2025-02-03T04:52:28.974Z"
+    },
+    {
+      "id": "e9bd",
+      "mesa": 3,
+      "items": [
+        {
+          "plato": "Pizza Margarita",
+          "cantidad": 1,
+          "precio": 15,
+          "tiempoPromedio": 20,
+          "restaurante": "Restaurante 3"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 25,
+      "tiempoRestante": 25,
+      "timestamp": "2025-02-03T05:44:39.505Z"
+    }
+  ]
+}

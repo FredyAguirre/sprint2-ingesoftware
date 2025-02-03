@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla del Chef</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="">
+            <img src="logo.png" alt="MiMenú Logo">
+        </div>
+    </header>
+    <h1>Órdenes Pendientes</h1>
+    <div id="ordenes-container"></div>
+
+    <!-- Modal para editar tiempo de una orden específica -->
+    <div id="editar-tiempo-modal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Tiempo de la Orden</h3>
+            <label for="tiempo-orden">Tiempo Restante (min):</label>
+            <input type="number" id="tiempo-orden" min="1" value="10">
+            <p>Aumentar tiempo:</p>
+            <button onclick="aumentarTiempoOrden(1)">+1 min</button>
+            <button onclick="aumentarTiempoOrden(5)">+5 min</button>
+            <button onclick="aumentarTiempoOrden(10)">+10 min</button>
+            <button onclick="guardarTiempoOrden()">Guardar</button>
+            <button onclick="cerrarModal('editar-tiempo-modal')">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar tiempo promedio de un plato -->
+    <div id="editar-tiempo-promedio-modal" class="modal">
+        <div class="modal-content">
+            <h3>Editar Tiempo Promedio del Plato</h3>
+            <label for="tiempo-promedio-plato">Tiempo Promedio (min):</label>
+            <input type="number" id="tiempo-promedio-plato" min="1" value="10">
+            <button onclick="guardarTiempoPromedioPlato()">Guardar</button>
+            <button onclick="cerrarModal('editar-tiempo-promedio-modal')">Cerrar</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 MiMenú. Todos los derechos reservados.</p>
+            <p>Contacto: info@mimenu.com</p>
+        </div>
+    </footer>
+    <script src="chef.js"></script>
+</body>
+</html>

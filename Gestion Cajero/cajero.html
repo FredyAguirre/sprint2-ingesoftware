@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiMenú - Gestión de Pedidos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff9c4;
+        }
+
+        #boton-inicio {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: #ffeb3b;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fbc02d;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #fbc02d;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #fbc02d;
+            color: white;
+        }
+
+        .boton-validar, .boton-cancelar, .boton-metodo, .boton-validado, .boton-revertir {
+            padding: 5px 10px;
+            margin: 2px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .boton-validar {
+            background-color: #cddc39;
+            color: black;
+        }
+
+        .boton-cancelar {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .boton-metodo {
+            background-color: #ffeb3b;
+            color: black;
+        }
+
+        .boton-validado {
+            background-color: #8bc34a;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .boton-revertir {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-contenido {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .modal-botones {
+            margin-top: 20px;
+        }
+
+        .modal-botones button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-botones button:first-child {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .modal-botones button:last-child {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button id="boton-inicio" onclick="irAlInicio()">Inicio</button>
+
+    <h1>MiMenú - Pedidos Pagados</h1>
+    <table>
+        <tr>
+            <th>Pedido</th>
+            <th>Método de Pago</th>
+            <th>Estado</th>
+            <th>Validación</th>
+        </tr>
+        <tr>
+            <td>
+                <img src="pedido1.jpg" alt="Imagen del Pedido" width="50"><br>
+                Hamburguesa<br>
+                01/02/2025<br>
+                $25.000<br>
+                Mesa 5
+            </td>
+            <td>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Efectivo')">Efectivo</button>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Tarjeta')">Tarjeta</button>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Transferencia')">Transferencia</button>
+            </td>
+            <td>Pagado</td>
+            <td>
+                <button class="boton-validar" onclick="validarPago(this)">Validar</button>
+                <button class="boton-cancelar" onclick="cancelarPago(this)">Cancelar</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="pedido2.jpg" alt="Imagen del Pedido" width="50"><br>
+                Pizza<br>
+                01/02/2025<br>
+                $40.000<br>
+                Mesa 3
+            </td>
+            <td>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Efectivo')">Efectivo</button>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Tarjeta')">Tarjeta</button>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Transferencia')">Transferencia</button>
+            </td>
+            <td>En espera</td>
+            <td>
+                <button class="boton-validar" onclick="validarPago(this)">Validar</button>
+                <button class="boton-cancelar" onclick="cancelarPago(this)">Cancelar</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="pedido3.jpg" alt="Imagen del Pedido" width="50"><br>
+                Ensalada<br>
+                02/02/2025<br>
+                $18.000<br>
+                Mesa 7
+            </td>
+            <td>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Efectivo')">Efectivo</button>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Tarjeta')">Tarjeta</button>
+                <button class="boton-metodo" onclick="cambiarMetodoPago(this, 'Transferencia')">Transferencia</button>
+            </td>
+            <td>En espera</td>
+            <td>
+                <button class="boton-validar" onclick="validarPago(this)">Validar</button>
+                <button class="boton-cancelar" onclick="cancelarPago(this)">Cancelar</button>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Modal de confirmación -->
+    <div id="modal-confirmacion" class="modal">
+        <div class="modal-contenido">
+            <p>¿Estás seguro de que deseas revertir la validación?</p>
+            <div class="modal-botones">
+                <button onclick="confirmarRevertir()">Sí</button>
+                <button onclick="cancelarRevertir()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let filaParaRevertir = null;
+
+        function irAlInicio() {
+            window.location.href = 'inicio.html';
+        }
+
+        function validarPago(boton) {
+            var fila = boton.closest('tr');
+            fila.cells[2].innerText = 'Pagado';
+
+            var botonCancelar = fila.querySelector('.boton-cancelar');
+            if (botonCancelar) {
+                botonCancelar.style.display = 'none';
+            }
+
+            boton.style.display = 'none';
+
+            var botonValidado = document.createElement('button');
+            botonValidado.className = 'boton-validado';
+            botonValidado.textContent = 'Validado';
+            botonValidado.disabled = true;
+
+            var botonRevertir = document.createElement('button');
+            botonRevertir.className = 'boton-revertir';
+            botonRevertir.textContent = 'X';
+            botonRevertir.onclick = function() { mostrarModalConfirmacion(fila); };
+
+            fila.cells[3].appendChild(botonValidado);
+            fila.cells[3].appendChild(botonRevertir);
+
+            fila.style.backgroundColor = '#d0f8ce'; // Color de fondo verde claro al validar
+        }
+
+        function cancelarPago(boton) {
+            var fila = boton.closest('tr');
+            fila.cells[2].innerText = 'Cancelado';
+
+            boton.style.display = 'none';
+            var botonValidar = fila.querySelector('.boton-validar');
+            if (botonValidar) {
+                botonValidar.style.display = 'none';
+            }
+
+            fila.style.backgroundColor = '#ffcdd2'; // Color de fondo rojo claro al cancelar
+        }
+
+        function mostrarModalConfirmacion(fila) {
+            filaParaRevertir = fila;
+            document.getElementById('modal-confirmacion').style.display = 'flex';
+        }
+
+        function confirmarRevertir() {
+            if (filaParaRevertir) {
+                revertirValidacion(filaParaRevertir);
+                filaParaRevertir = null;
+            }
+            document.getElementById('modal-confirmacion').style.display = 'none';
+        }
+
+        function cancelarRevertir() {
+            filaParaRevertir = null;
+            document.getElementById('modal-confirmacion').style.display = 'none';
+        }
+
+        function revertirValidacion(fila) {
+            fila.cells[2].innerText = 'En espera';
+
+            var botonValidado = fila.querySelector('.boton-validado');
+            var botonRevertir = fila.querySelector('.boton-revertir');
+
+            if (botonValidado) botonValidado.remove();
+            if (botonRevertir) botonRevertir.remove();
+
+            fila.cells[3].querySelector('.boton-validar').style.display = 'inline-block';
+            fila.cells[3].querySelector('.boton-cancelar').style.display = 'inline-block';
+
+            fila.style.backgroundColor = ''; // Restablecer color de fondo
+        }
+
+        function cambiarMetodoPago(boton, metodo) {
+            var celda = boton.parentElement;
+            celda.innerHTML = metodo;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
