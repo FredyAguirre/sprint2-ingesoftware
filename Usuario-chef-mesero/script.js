@@ -6,7 +6,7 @@ let seccionAnterior = 'restaurantes'; // Para manejar la flecha de volver
 function verPlatos(restaurante) {
     restauranteActual = restaurante;
     seccionAnterior = 'restaurantes';
-    document.querySelector('.restaurantes').style.display = 'none';
+    document.querySelector('.carrusel-restaurantes').style.display = 'none';
     document.querySelector('.platos').style.display = 'block';
     reiniciarCantidad();
 }
@@ -17,6 +17,8 @@ function volverARestaurantes() {
     document.querySelector('.platos').style.display = 'none';
     document.querySelector('.detalle-plato').style.display = 'none';
     document.querySelector('.carrito').style.display = 'none';
+    document.querySelector('.metodos-pago').style.display = 'none';
+    document.querySelector('.formulario-pago').style.display = 'none';
     document.querySelector('.carrusel-restaurantes').style.display = 'block';
 
     // Reiniciar la cantidad a 1
@@ -138,13 +140,53 @@ function vaciarCarrito() {
     verCarrito();
 }
 
-function verPlatos(restaurante) {
-    restauranteActual = restaurante;
-    document.querySelector('.carrusel-restaurantes').style.display = 'none';
-    document.querySelector('.platos').style.display = 'block';
+// Función para mostrar los métodos de pago
+function mostrarMetodosPago() {
+    const mesa = document.getElementById('mesa').value;
+    if (carrito.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+    }
+
+    // Ocultar la sección del carrito y mostrar la sección de métodos de pago
+    document.querySelector('.carrito').style.display = 'none';
+    document.querySelector('.metodos-pago').style.display = 'block';
 }
-// Función para confirmar la orden
-async function hacerOrden() {
+
+// Función para mostrar el formulario de pago según el método seleccionado
+function mostrarFormularioPago(metodo) {
+    document.querySelector('.metodos-pago').style.display = 'none';
+    document.querySelector('.formulario-pago').style.display = 'block';
+    document.getElementById('titulo-formulario-pago').innerText = `Pagar con ${metodo.charAt(0).toUpperCase() + metodo.slice(1)}`;
+}
+
+// Función para volver a la sección de métodos de pago
+function volverAMetodosPago() {
+    document.querySelector('.formulario-pago').style.display = 'none';
+    document.querySelector('.metodos-pago').style.display = 'block';
+}
+
+// Función para volver a la sección del carrito
+function volverACarrito() {
+    document.querySelector('.metodos-pago').style.display = 'none';
+    document.querySelector('.carrito').style.display = 'block';
+}
+
+// Función para pagar en caja
+function pagarEnCaja() {
+    confirmarOrden();
+}
+
+// Función para confirmar el pago
+function confirmarPago() {
+    const confirmacion = confirm('¿Estás seguro de que deseas confirmar el pago?');
+    if (confirmacion) {
+        confirmarOrden();
+    }
+}
+
+// Función para confirmar la orden y enviarla al servidor
+async function confirmarOrden() {
     const mesa = document.getElementById('mesa').value;
     if (carrito.length === 0) {
         alert('El carrito está vacío.');
@@ -191,6 +233,4 @@ async function hacerOrden() {
         console.error('Error:', error);
         alert('Error al enviar la orden.');
     }
-
-
 }

@@ -97,8 +97,41 @@
             <button onclick="vaciarCarrito()">Vaciar Carrito</button>
             <label for="mesa">Mesa:</label>
             <input type="number" id="mesa" min="1" value="1">
-            <button onclick="hacerOrden()">Confirmar Orden</button>
+            <button onclick="mostrarMetodosPago()">Confirmar Orden</button>
             <button onclick="volverAPlatos()">Volver</button>
+        </section>
+
+        <!-- Sección de métodos de pago -->
+        <section class="metodos-pago" id="metodos-pago" style="display:none;">
+            <h2>Métodos de Pago</h2>
+            <button onclick="mostrarFormularioPago('paypal')">PayPal</button>
+            <button onclick="mostrarFormularioPago('daviplata')">DaviPlata</button>
+            <button onclick="pagarEnCaja()">Pagar en Caja</button>
+            <button onclick="volverACarrito()">Volver</button>
+        </section>
+
+        <!-- Sección de formulario de pago -->
+        <section class="formulario-pago" id="formulario-pago" style="display:none;">
+            <h2 id="titulo-formulario-pago"></h2>
+            <form id="form-pago">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="tarjeta" required>
+                
+                <label for="fecha">Fecha de Expiración:</label>
+                <input type="text" id="fecha" required>
+                
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" required>
+                
+                <button type="button" onclick="confirmarPago()">Pagar</button>
+                <button type="button" onclick="volverAMetodosPago()">Volver</button>
+            </form>
         </section>
     </main>
 
