@@ -298,7 +298,7 @@
           "restaurante": "Restaurante 1"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T03:03:07.540Z"
