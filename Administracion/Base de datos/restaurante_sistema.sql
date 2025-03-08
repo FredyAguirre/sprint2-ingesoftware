@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 06:42 AM
+-- Generation Time: Mar 08, 2025 at 05:37 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,12 +41,10 @@ CREATE TABLE `platos` (
 --
 
 INSERT INTO `platos` (`id`, `nombre`, `descripcion`, `ingredientes`, `imagen_url`, `creado_en`) VALUES
-(1, 'Pizza Margarita', 'Pizza clásica con tomate, queso mozzarella y albahaca.', '', 'imagenes/images.jpg', '2025-01-27 21:50:52'),
+(1, 'Pizza Margarita', 'Pizza clásica con tomate, queso mozzarella y albahaca.', 'ss', 'imagenes/images.jpg', '2025-01-27 21:50:52'),
 (6, 'Tacos de Carne Asada', 'Tacos con carne asada, cebolla, cilantro y salsa', 'Carne asada, cebolla, cilantro, salsa roja, tortillas de maíz', 'imagenes/carne-asada-tacos1.jpg', '2025-02-03 01:55:17'),
 (7, 'Enchiladas Verdes', 'Tortillas rellenas de pollo bañadas en salsa verde', 'Pollo, tortillas de maíz, salsa verde, crema, queso fresco', 'imagenes/450_1000.jpg', '2025-02-03 01:55:17'),
 (8, 'Pozole Rojo', 'Sopa tradicional de maíz con carne de cerdo', 'Maíz hominy, carne de cerdo, chile, cebolla, rábanos', 'imagenes/pozole-rojo-1.jpg', '2025-02-03 01:55:17'),
-(9, 'Guacamole', 'Aguacate triturado con cebolla, tomate y limón', 'Aguacate, cebolla, tomate, cilantro, limón', 'imagenes/AR-RM-14064-easy-guacamole-ddmfs-3x4-9e4a1eb1bb34421a99db675b53a29e53.jpg', '2025-02-03 01:55:17'),
-(10, 'Burritos de Pollo', 'Burritos rellenos de pollo, arroz, frijoles y queso', 'Pollo, arroz, frijoles, queso, tortillas de harina', 'imagenes/tacos-al-pastor-receta.webp', '2025-02-03 01:55:17'),
 (11, 'Sopes', 'Pequeñas tortillas gruesas con frijoles, carne, y salsa', 'Tortillas de maíz, frijoles, carne de res o pollo, lechuga, salsa', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
 (12, 'Tacos al Pastor', 'Tacos con cerdo adobado, piña, cebolla y cilantro', 'Cerdo adobado, piña, cebolla, cilantro, tortillas de maíz', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
 (13, 'Quesadillas de Flor de Calabaza', 'Tortillas rellenas de flor de calabaza y queso', 'Flor de calabaza, queso Oaxaca, tortillas de maíz', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
@@ -58,7 +56,40 @@ INSERT INTO `platos` (`id`, `nombre`, `descripcion`, `ingredientes`, `imagen_url
 (19, 'Fajitas de Res', 'Tiras de carne de res acompañadas de verduras y tortillas', 'Carne de res, pimientos, cebolla, tortillas de harina', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
 (20, 'Pescado a la Veracruzana', 'Pescado cocinado con tomate, aceitunas y alcaparras', 'Pescado, tomate, aceitunas, alcaparras, cebolla', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
 (21, 'Tostadas de Atún', 'Tostadas de maíz con atún, aguacate y salsa picante', 'Atún, tostadas de maíz, aguacate, salsa picante', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
-(22, 'Arroz a la Mexicana', 'Arroz preparado con tomate, cebolla y chiles', 'Arroz, tomate, cebolla, chiles, ajo', 'https://via.placeholder.com/100', '2025-02-03 01:55:17');
+(22, 'Arroz a la Mexicana', 'Arroz preparado con tomate, cebolla y chiles', 'Arroz, tomate, cebolla, chiles, ajo', 'https://via.placeholder.com/100', '2025-02-03 01:55:17'),
+(24, 'desafsdfg', 'sdgshsdh', 'sdhshfsdfhsf', '', '2025-02-03 05:51:15'),
+(25, 'desafsdfg', 'sdgshsdh', 'sdhshfsdfhsf', '', '2025-02-03 05:52:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transacciones_financieras`
+--
+
+CREATE TABLE `transacciones_financieras` (
+  `id` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
+  `tipo` enum('ingreso','gasto') NOT NULL,
+  `monto` decimal(10,2) NOT NULL,
+  `metodo_pago` enum('efectivo','tarjeta','transferencia') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transacciones_financieras`
+--
+
+INSERT INTO `transacciones_financieras` (`id`, `fecha`, `descripcion`, `tipo`, `monto`, `metodo_pago`) VALUES
+(15, '2025-03-10', 'Venta de bandeja paisa', 'ingreso', 32000.00, 'efectivo'),
+(16, '2025-03-10', 'Venta de ajiaco', 'ingreso', 28000.00, 'tarjeta'),
+(17, '2025-03-10', 'Venta de sancocho trifásico', 'ingreso', 35000.00, 'transferencia'),
+(18, '2025-03-10', 'Venta de lechona', 'ingreso', 40000.00, 'tarjeta'),
+(19, '2025-03-10', 'Venta de arepas rellenas', 'ingreso', 15000.00, 'efectivo'),
+(20, '2025-03-11', 'Compra de carne para bandeja paisa', 'gasto', 120000.00, 'transferencia'),
+(21, '2025-03-12', 'Pago de nómina a cocineros', 'gasto', 2800000.00, 'transferencia'),
+(22, '2025-03-13', 'Compra de ingredientes para salsas', 'gasto', 50000.00, 'efectivo'),
+(23, '2025-03-14', 'Compra de verduras frescas', 'gasto', 70000.00, 'tarjeta'),
+(24, '2025-03-15', 'Pago de servicio de gas', 'gasto', 250000.00, 'transferencia');
 
 -- --------------------------------------------------------
 
@@ -111,6 +142,12 @@ ALTER TABLE `platos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transacciones_financieras`
+--
+ALTER TABLE `transacciones_financieras`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -124,7 +161,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `platos`
 --
 ALTER TABLE `platos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `transacciones_financieras`
+--
+ALTER TABLE `transacciones_financieras`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
