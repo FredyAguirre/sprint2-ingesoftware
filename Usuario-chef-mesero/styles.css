@@ -530,3 +530,18 @@ textarea {
 .solicitud button:hover {
     background-color: #c0392b;
 }
+
+/* Estilos para el cuadro de texto de información adicional */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+textarea::placeholder {
+    color: #999;
+}

@@ -302,6 +302,24 @@
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T03:03:07.540Z"
+    },
+    {
+      "id": "b32b",
+      "mesa": 1,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 2,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 3"
+        }
+      ],
+      "informacionExtra": "hola bb",
+      "estado": "Entregado",
+      "tiempoEstimado": 20,
+      "tiempoRestante": 20,
+      "timestamp": "2025-03-08T03:45:48.516Z"
     }
   ]
 }

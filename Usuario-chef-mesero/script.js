@@ -192,6 +192,8 @@ function confirmarPago() {
 // Función para confirmar la orden y enviarla al servidor
 async function confirmarOrden() {
     const mesa = document.getElementById('mesa').value;
+    const informacionExtra = document.getElementById('informacion-extra').value;
+
     if (carrito.length === 0) {
         alert('El carrito está vacío.');
         return;
@@ -210,6 +212,7 @@ async function confirmarOrden() {
     const orden = {
         mesa: parseInt(mesa),
         items: carrito,
+        informacionExtra: informacionExtra, // Agregar la información adicional
         estado: "Ordenado",
         tiempoEstimado: tiempoEstimado,
         tiempoRestante: tiempoEstimado,
@@ -229,6 +232,7 @@ async function confirmarOrden() {
         if (response.ok) {
             alert('Orden confirmada. Gracias por su compra.');
             carrito = [];
+            document.getElementById('informacion-extra').value = ''; // Limpiar el campo de información adicional
             volverARestaurantes();
         } else {
             alert('Error al enviar la orden.');

@@ -60,29 +60,28 @@ async function cargarOrdenes() {
     const container = document.getElementById('ordenes-container');
     container.innerHTML = '';
 
-    ordenes.forEach(orden => {
+    // Filtrar solo las órdenes que no están en estado "Listo" o "Entregado"
+    const ordenesPendientes = ordenes.filter(orden => orden.estado !== 'Listo' && orden.estado !== 'Entregado');
+
+    ordenesPendientes.forEach(orden => {
         const ordenDiv = document.createElement('div');
         ordenDiv.className = 'orden';
         ordenDiv.innerHTML = `
             <h3>Mesa ${orden.mesa}</h3>
             <ul>
-                ${orden.items.map(item => `
-                    <li>
-                        ${item.cantidad}x ${item.plato}
-                        <button class="editar-tiempo-promedio-btn" onclick="abrirModalEditarTiempoPromedio('${item.plato}')">Editar Tiempo Promedio</button>
-                    </li>
-                `).join('')}
+                ${orden.items.map(item => `<li>${item.cantidad}x ${item.plato}</li>`).join('')}
             </ul>
+            <p><strong>Información adicional:</strong> ${orden.informacionExtra || 'Ninguna'}</p>
             <p>Tiempo restante: <span class="tiempo" id="tiempo-${orden.id}">${orden.tiempoRestante}</span> min</p>
             <button onclick="cambiarEstado('${orden.id}', 'En Preparación')">En Preparación</button>
-            <button onclick="abrirModalEditarTiempo('${orden.id}')">Editar Tiempo de la Orden</button>
+            <button onclick="abrirModalEditarTiempo('${orden.id}')">Editar Tiempo</button>
             <button onclick="cambiarEstado('${orden.id}', 'Listo')">Listo</button>
         `;
         container.appendChild(ordenDiv);
     });
 
     // Iniciar temporizadores
-    ordenes.forEach(orden => {
+    ordenesPendientes.forEach(orden => {
         if (orden.estado === 'En Preparación' && orden.tiempoRestante > 0) {
             iniciarTemporizador(orden.id, orden.tiempoRestante);
         }
