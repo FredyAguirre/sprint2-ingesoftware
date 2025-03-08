@@ -145,7 +145,7 @@
           "restaurante": "Restaurante 3"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T00:53:22.335Z"
@@ -162,7 +162,7 @@
           "restaurante": "Restaurante 3"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T01:00:42.812Z"
@@ -179,7 +179,7 @@
           "restaurante": "Restaurante 3"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T01:05:40.293Z"
@@ -196,7 +196,7 @@
           "restaurante": "Restaurante 1"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 25,
       "tiempoRestante": 25,
       "timestamp": "2025-03-08T01:05:54.750Z"
@@ -247,7 +247,7 @@
           "restaurante": "Restaurante 2"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T01:11:01.953Z"
@@ -264,10 +264,27 @@
           "restaurante": "Restaurante 1"
         }
       ],
-      "estado": "Listo",
+      "estado": "Entregado",
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T01:11:35.221Z"
+    },
+    {
+      "id": "cbc0",
+      "mesa": 1,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 1,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 1"
+        }
+      ],
+      "estado": "Entregado",
+      "tiempoEstimado": 20,
+      "tiempoRestante": 20,
+      "timestamp": "2025-03-08T02:20:57.284Z"
     }
   ]
 }

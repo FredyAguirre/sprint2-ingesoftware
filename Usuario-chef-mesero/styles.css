@@ -390,3 +390,58 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* Estilos para la sección de reseñas */
+.reseñas {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.formulario-reseña {
+    margin-bottom: 20px;
+}
+
+.calificacion {
+    margin-bottom: 10px;
+}
+
+.calificacion span {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.calificacion span:hover,
+.calificacion span.seleccionada {
+    color: #ffcc00;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.lista-reseñas {
+    margin-top: 20px;
+}
+
+.reseña {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reseña .calificacion {
+    font-size: 18px;
+    color: #ffcc00;
+}
+
+.reseña .comentario {
+    margin-top: 5px;
+    color: #333;
+}

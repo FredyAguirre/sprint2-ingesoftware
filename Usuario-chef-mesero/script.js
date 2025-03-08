@@ -1,6 +1,7 @@
 let carrito = [];
 let restauranteActual = '';
 let seccionAnterior = 'restaurantes'; // Para manejar la flecha de volver
+let calificacionActual = 0;
 
 // Función para mostrar la sección de platos de un restaurante
 function verPlatos(restaurante) {
@@ -53,6 +54,9 @@ function verDetalle(plato, precio, tiempoPromedio) {
     document.getElementById("imagen-plato").alt = `Imagen de ${plato}`;
 
     reiniciarCantidad();
+
+    // Cargar las reseñas del plato
+    cargarReseñas();
 }
 
 // Función para volver a la sección de platos
@@ -233,4 +237,88 @@ async function confirmarOrden() {
         console.error('Error:', error);
         alert('Error al enviar la orden.');
     }
+}
+
+// Función para calificar con estrellas
+function calificar(puntaje) {
+    calificacionActual = puntaje;
+    const estrellas = document.querySelectorAll('.calificacion span');
+    estrellas.forEach((estrella, index) => {
+        if (index < puntaje) {
+            estrella.classList.add('seleccionada');
+        } else {
+            estrella.classList.remove('seleccionada');
+        }
+    });
+}
+
+// Función para enviar una reseña
+async function enviarReseña() {
+    const plato = document.getElementById('nombre-plato').innerText;
+    const comentario = document.getElementById('comentario-reseña').value;
+
+    if (calificacionActual === 0) {
+        alert('Por favor, selecciona una calificación.');
+        return;
+    }
+
+    if (comentario.trim() === '') {
+        alert('Por favor, escribe un comentario.');
+        return;
+    }
+
+    const reseña = {
+        plato,
+        calificacion: calificacionActual,
+        comentario,
+        fecha: new Date().toISOString()
+    };
+
+    // Enviar la reseña al servidor
+    try {
+        const response = await fetch('http://localhost:3001/reseñas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reseña)
+        });
+
+        if (response.ok) {
+            alert('Reseña enviada con éxito.');
+            cargarReseñas();
+            document.getElementById('comentario-reseña').value = ''; // Limpiar el campo de comentario
+            calificacionActual = 0;
+            document.querySelectorAll('.calificacion span').forEach(estrella => {
+                estrella.classList.remove('seleccionada');
+            });
+        } else {
+            alert('Error al enviar la reseña.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error al enviar la reseña.');
+    }
+}
+
+// Función para cargar las reseñas existentes
+async function cargarReseñas() {
+    const plato = document.getElementById('nombre-plato').innerText;
+    const response = await fetch(`http://localhost:3001/reseñas?plato=${plato}`);
+    const reseñas = await response.json();
+    const listaReseñas = document.getElementById('lista-reseñas');
+    listaReseñas.innerHTML = '';
+
+    reseñas.forEach(reseña => {
+        const divReseña = document.createElement('div');
+        divReseña.className = 'reseña';
+        divReseña.innerHTML = `
+            <div class="calificacion">
+                ${'★'.repeat(reseña.calificacion)}${'☆'.repeat(5 - reseña.calificacion)}
+            </div>
+            <div class="comentario">${reseña.comentario}</div>
+            <div class="fecha">${new Date(reseña.fecha).toLocaleDateString()}</div>
+        `;
+        listaReseñas.appendChild(divReseña);
+    });
 }

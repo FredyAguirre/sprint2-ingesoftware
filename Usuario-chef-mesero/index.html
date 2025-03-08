@@ -87,6 +87,26 @@
             <input type="number" id="cantidad" min="1" value="1">
             <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
             <button onclick="volverAPlatos()">Volver</button>
+
+            <!-- Sección de reseñas -->
+            <div class="reseñas">
+                <h3>Reseñas</h3>
+                <div class="formulario-reseña">
+                    <h4>Deja tu reseña</h4>
+                    <div class="calificacion">
+                        <span onclick="calificar(1)">★</span>
+                        <span onclick="calificar(2)">★</span>
+                        <span onclick="calificar(3)">★</span>
+                        <span onclick="calificar(4)">★</span>
+                        <span onclick="calificar(5)">★</span>
+                    </div>
+                    <textarea id="comentario-reseña" placeholder="Escribe tu comentario..."></textarea>
+                    <button onclick="enviarReseña()">Enviar Reseña</button>
+                </div>
+                <div class="lista-reseñas" id="lista-reseñas">
+                    <!-- Aquí se mostrarán las reseñas existentes -->
+                </div>
+            </div>
         </section>
 
         <!-- Sección del carrito -->
