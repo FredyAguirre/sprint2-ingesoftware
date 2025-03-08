@@ -1,4 +1,19 @@
 {
-  "reseñas": [],
+  "reseñas": [
+    {
+      "id": "507f",
+      "plato": "Hamburguesa Sencilla",
+      "calificacion": 4,
+      "comentario": "me gusto pero le falto más papas",
+      "fecha": "2025-03-08T05:06:41.253Z"
+    },
+    {
+      "id": "bcc0",
+      "plato": "Hamburguesa Sencilla",
+      "calificacion": 1,
+      "comentario": "no me gustó",
+      "fecha": "2025-03-08T05:11:02.260Z"
+    }
+  ],
   "solicitudes": []
 }
