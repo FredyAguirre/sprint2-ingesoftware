@@ -285,6 +285,23 @@
       "tiempoEstimado": 20,
       "tiempoRestante": 20,
       "timestamp": "2025-03-08T02:20:57.284Z"
+    },
+    {
+      "id": "e8e8",
+      "mesa": 1,
+      "items": [
+        {
+          "plato": "Hamburguesa Sencilla",
+          "cantidad": 1,
+          "precio": 10,
+          "tiempoPromedio": 15,
+          "restaurante": "Restaurante 1"
+        }
+      ],
+      "estado": "Listo",
+      "tiempoEstimado": 20,
+      "tiempoRestante": 20,
+      "timestamp": "2025-03-08T03:03:07.540Z"
     }
   ]
 }

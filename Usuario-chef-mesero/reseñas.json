@@ -1,11 +1,11 @@
 {
-  "reseñas": [
+  "reseñas": [],
+  "solicitudes": [
     {
-      "id": "4681",
-      "plato": "Hamburguesa Sencilla",
-      "calificacion": 5,
-      "comentario": "hola bbb",
-      "fecha": "2025-03-08T02:35:18.132Z"
+      "id": "f136",
+      "mesa": 1,
+      "mensaje": "Solicitud de ayuda en mesa 1",
+      "timestamp": "2025-03-08T02:49:01.676Z"
     }
   ]
 }

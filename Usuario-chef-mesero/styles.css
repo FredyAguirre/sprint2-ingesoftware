@@ -445,3 +445,88 @@ textarea {
     margin-top: 5px;
     color: #333;
 }
+
+/* Estilos para las solicitudes de ayuda */
+.solicitud {
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.solicitud h3 {
+    margin: 0;
+    color: #333;
+}
+
+.solicitud p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Estilos para las solicitudes de ayuda */
+.solicitud {
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.solicitud h3 {
+    margin: 0;
+    color: #333;
+}
+
+.solicitud p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.solicitud button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.solicitud button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos para las solicitudes de ayuda */
+.solicitud {
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.solicitud h3 {
+    margin: 0;
+    color: #333;
+}
+
+.solicitud p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.solicitud button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.solicitud button:hover {
+    background-color: #c0392b;
+}

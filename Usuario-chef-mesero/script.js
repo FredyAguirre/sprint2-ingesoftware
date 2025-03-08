@@ -322,3 +322,38 @@ async function cargarReseñas() {
         listaReseñas.appendChild(divReseña);
     });
 }
+
+// Función para llamar al mesero
+async function llamarAlMesero() {
+    const mesa = document.getElementById('mesa').value;
+    if (!mesa) {
+        alert('Por favor, ingresa el número de mesa.');
+        return;
+    }
+
+    const solicitud = {
+        mesa: parseInt(mesa),
+        mensaje: `Solicitud de ayuda en mesa ${mesa}`,
+        timestamp: new Date().toISOString()
+    };
+
+    // Enviar la solicitud al servidor
+    try {
+        const response = await fetch('http://localhost:3001/solicitudes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(solicitud)
+        });
+
+        if (response.ok) {
+            alert('El mesero ha sido notificado. ¡Pronto estará contigo!');
+        } else {
+            alert('Error al enviar la solicitud.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error al enviar la solicitud.');
+    }
+}
